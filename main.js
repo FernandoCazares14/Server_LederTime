@@ -15,7 +15,12 @@ let opinion = {
     },
 }
 
-app.post('/test', (req, res) => {
+app.post('/localizacion', (req, res) => {
+    
+    const localizacionUsuario = req.query;
+    
+    console.log(localizacionUsuario);
+
     req.on('data', info => {
         buffer += info.toString();
     });
