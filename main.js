@@ -28,8 +28,9 @@ app.post('/localizacion', (req, res) => {
     req.on('end', () => {
         const data = JSON.parse(buffer);
         console.log(data)
-        res.status(201).json(req.buffer)
+        res.status(201).json(req.query)
     });
+
 
 });
 
