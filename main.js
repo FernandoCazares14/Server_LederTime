@@ -19,7 +19,7 @@ app.post('/localizacion', (req, res) => {
     
     const localizacionUsuario = req.query;
     
-    console.log(localizacionUsuario);
+    console.log("TEST: ", localizacionUsuario);
 
     req.on('data', info => {
         buffer += info.toString();
