@@ -17,23 +17,23 @@ let opinion = {
 
 app.post('/localizacion', (req, res) => {
     
-    const localizacionUsuario = req.query.localizacion;
-    const [latitud, longitud] = localizacionUsuario.split(',');
+    const localizacionUsuario = req.query;
         
     req.on('data', info => {
         buffer += info.toString();
     });
 
     req.on('end', () => {
-        const data = JSON.parse(buffer);
-        console.log(data)
+        /* const data = JSON.parse(buffer);
+        console.log("OLA: ", data) */
         res.status(200);
     });
 
     console.log("TEST: ", localizacionUsuario);
-    console.log(`Latitud: ${latitud}, Longitud: ${longitud}`);
+    res.send(localizacionUsuario);
+    /* console.log(`Latitud: ${latitud}, Longitud: ${longitud}`);
 
-    res.send({ latitud, longitud });
+    res.send({ latitud, longitud }); */
 
 
 });
