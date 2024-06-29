@@ -19,7 +19,7 @@ app.post('/localizacion', (req, res) => {
     
     const localizacionUsuario = req.query;
     
-    console.log(localizacionUsuario);
+    console.log("TEST: ", localizacionUsuario);
 
     req.on('data', info => {
         buffer += info.toString();
@@ -28,7 +28,7 @@ app.post('/localizacion', (req, res) => {
     req.on('end', () => {
         const data = JSON.parse(buffer);
         console.log(data)
-        res.status(201);
+        res.status(200);
     });
 
 
