@@ -18,9 +18,8 @@ let opinion = {
 app.post('/localizacion', (req, res) => {
     
     const localizacionUsuario = req.query;
-    
-    console.log("TEST: ", localizacionUsuario);
-
+    const [latitud, longitud] = localizacionUsuario.split(',');
+        
     req.on('data', info => {
         buffer += info.toString();
     });
@@ -30,6 +29,11 @@ app.post('/localizacion', (req, res) => {
         console.log(data)
         res.status(200);
     });
+
+    console.log("TEST: ", localizacionUsuario);
+    console.log(`Latitud: ${latitud}, Longitud: ${longitud}`);
+
+    res.send({ latitud, longitud });
 
 
 });
