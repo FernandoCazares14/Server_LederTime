@@ -17,7 +17,7 @@ let opinion = {
 
 app.post('/localizacion', (req, res) => {
     
-    const localizacionUsuario = req.query;
+    const localizacionUsuario = req.query.localizacion;
     const [latitud, longitud] = localizacionUsuario.split(',');
         
     req.on('data', info => {
