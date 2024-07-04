@@ -29,10 +29,12 @@ app.post('/localizacion', (req, res) => {
         res.status(200);
     });
 
-    console.log("TEST: ", localizacionUsuario);
+    console.log("TEST: ", localizacionUsuario.localizacion);
+    let location = localizacionUsuario.localizacion.split(",");
+    console.log(location);
     res.send(localizacionUsuario);
+    
     /* console.log(`Latitud: ${latitud}, Longitud: ${longitud}`);
-
     res.send({ latitud, longitud }); */
 
 
