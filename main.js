@@ -1,4 +1,5 @@
 const express = require('express');
+const localizacion = require('./localizaciónTienda');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -29,13 +30,10 @@ app.post('/localizacion', (req, res) => {
         res.status(200);
     });
 
-    console.log("TEST: ", localizacionUsuario.localizacion);
-    let location = localizacionUsuario.localizacion.split(",");
-    console.log(location);
-    res.send(localizacionUsuario);
-    
-    /* console.log(`Latitud: ${latitud}, Longitud: ${longitud}`);
-    res.send({ latitud, longitud }); */
+    let [ lat, lng] = localizacionUsuario.localizacion.split(",");
+
+    localizacion.localizarTienda(lat, lng, res);
+   
 
 
 });
